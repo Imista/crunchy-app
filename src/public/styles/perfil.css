@@ -1,0 +1,65 @@
+#btn_perfil {
+    filter: invert(22%) sepia(44%) saturate(4326%) hue-rotate(170deg) brightness(96%) contrast(104%);
+}
+
+#datos_personales {
+    height: 31.406%;
+}
+
+#configuracion {
+    height: 54.219%;
+    margin: 0 4.445% 0 4.445%;
+}
+
+.txt_configuracion {
+    height: 5.476%;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4.445vw;
+    display: block;
+    margin-bottom: 6.098%;
+}
+
+.foto_perfil {
+    height: 69.654%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#img_perfil {
+    border-radius: 50%;
+    height: 0;
+    width: 33.335%;
+    padding-bottom: 33.335%;
+    background-color: var(--azul-claro-L);
+}
+
+.nombre {
+    height: 30.35%;
+    display: flex;
+    justify-content: center;
+}
+
+#txt_nombre_user {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 6.667vw;
+    color: var(--fondo-D);
+}
+
+@media (min-width: 721px) {
+    .configuracion {
+        width: 656px;
+    }
+
+    #txt_nombre_user {
+        font-size: 48px;
+    }
+
+    .txt_configuracion{
+        font-size: 32px;
+    }
+}

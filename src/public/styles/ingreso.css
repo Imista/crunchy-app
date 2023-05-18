@@ -1,0 +1,91 @@
+.logo {
+    height: 44.0625%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.img_logo {
+    position: relative;
+    width: 43.334%;
+    height: 0;
+    padding-bottom: 43.334%;
+    background-color: var(--azul-claro-L);
+    bottom: 5.674%;
+}
+
+.titulo {
+    height: 13.75%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt_crunchy {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 600;
+    margin: 0;
+    font-size: 13.334vw;
+}
+
+.botones {
+    height: 42.1875%;
+    display: inline-block;
+}
+
+#btn_ingreso {
+    position: relative;
+    left: 4.445%;
+    display: flex;
+    width: 91.112%;
+    height: 18.519%;
+    border: none;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: var(--azul-oscuro-L);
+    margin-bottom: 4.445%;
+}
+
+#btn_registro {
+    position: relative;
+    left: 4.445%;
+    display: flex;
+    width: 91.112%;
+    height: 18.519%;
+    border: 4px solid var(--azul-oscuro-L);
+    border-radius: 32px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: var(--fondo-L);
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.txt_ingreso {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.278vw;
+    color: var(--fondo-L);
+}
+
+.txt_registro {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.278vw;
+    color: var(--azul-oscuro-L);
+}

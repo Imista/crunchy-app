@@ -1,0 +1,71 @@
+#btn_carta {
+    filter: invert(22%) sepia(44%) saturate(4326%) hue-rotate(170deg) brightness(96%) contrast(104%);
+}
+
+#btn_filtro {
+    position: absolute;
+    right: 4.445%;
+    left: 87.778%;
+}
+
+#carta {
+    max-width: 656px;
+    height: 79.375%;
+    margin: 5.556% 4.445%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(auto, max-content);
+    grid-column-gap: 4.879%;
+    grid-row-gap: 3.150%;
+    overflow: auto;
+    position: relative;
+
+}
+
+.item_comida {
+    max-height: 98.735%;
+    position: relative;
+    text-align: center;
+}
+
+.img_comida_item {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-color: rgb(212, 212, 212);
+    border-radius: 24px;
+}
+
+.fondo_item_comida {
+    position: absolute;
+    width: 100%;
+    height: 25.642%;
+    background-color: var(--fondo-D);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, rgba(28, 28, 28, 0.25) 25%, rgba(28, 28, 28, 0.5) 50%, rgba(28, 28, 28, 0.75) 75%, #1C1C1C 100%);
+}
+
+#txt_nombre_item {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.334vw;
+    line-height: 3.75vh;
+    color: var(--fondo-L);
+    width: 100%;
+    padding: 2.565%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 721px){
+    #txt_nombre_item {
+        font-size: 24px;
+    }
+}

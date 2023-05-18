@@ -1,0 +1,39 @@
+#btn_busqueda {
+    filter: invert(22%) sepia(44%) saturate(4326%) hue-rotate(170deg) brightness(96%) contrast(104%);
+}
+
+#btn_filtro {
+    position: absolute;
+    right: 4.445%;
+    left: 87.778%;
+}
+
+#inp_busqueda{
+    position: absolute;
+    border: none;
+    padding: 0;
+    bottom: 0;
+    margin-left: 15.556%;
+    width: 68.889%;
+    height: 53.847%;
+    background-color: #E1E1E1;
+    border-radius: 32px;
+    font-size: 3.334vw;
+    text-align: center;
+    outline: none;
+}
+
+#inp_busqueda::placeholder {
+    text-align: center;
+    color: var(--fondo-D);
+}
+
+#espacio_blanco {
+    height: 85.625vh;
+}
+
+@media (min-width: 721px){
+    #inp_busqueda {
+        font-size: 24px;
+    }
+}

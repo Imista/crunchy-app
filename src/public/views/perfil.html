@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/general.css"/>
-    <link rel="stylesheet" href="/styles/matches.css"/>
+    <link rel="stylesheet" href="/styles/perfil.css"/>
     <link rel="stylesheet" href="/styles/hamburguesa.css"/>
     <title>Crunchy</title>
 </head>
@@ -18,10 +18,15 @@
             <div class="btn_menus" id="btn_hamburguesa">
                 <img class="img_menus" id="img_hamburguesa" src="/assets/menu-hamburguesa.svg" />
             </div>
-            <button class="btn_menus" id="btn_categoria">
-                <img class="img_menus" id="img_categoria" src="/assets/comidas.svg" />
-            </button>
         </header>
+        <div class="app_contenido" id="datos_personales">
+            <div class="foto_perfil">
+                <img id="img_perfil"/>
+            </div>
+            <div class="nombre">
+                <span id="txt_nombre_user">Nombre Apellidos</span>
+            </div>
+        </div>
         <div class="hamburguesa">
             <div class="saludo">
                 <span id="txt_saludo">¡Hola, usuario!</span>
@@ -58,26 +63,14 @@
                     <a href="#">Salir</a></li>
             </ul>
         </div>
-        <div class="app_contenido" id="comidas">
-            <img class="img_comida" id="img_comida"></img>
-            <div class="fondo_comida">
-                <div class="informacion">
-                    <span class="txt_nombre" id="txt_nombre">Nombre de la comida</span>
-                    <span class="txt_local" id="txt_local">Local</span>
-                </div>
-            </div>
-        </div>
-        <div class="app_contenido" id="gustos">
-            <button class="btn_gustos" id="btn_dislike">
-                <img class="img_gustos" src="/assets/dislike.svg" />
-            </button>
-            <button class="btn_gustos" id="btn_like">
-                <img class="img_gustos" src="/assets/like.svg" />
-            </button>
+        <div class="app_contenido" id="configuracion">
+            <p class="txt_configuracion">Usuario: <span id="txt_configuracion_usuario">chiva de corazon</span></p>
+            <p class="txt_configuracion">Correo: <span id="txt_configuracion_correo">jc_*****************@hotmail.com</span></p>
+            <p class="txt_configuracion">Contraseña: *********</p>
         </div>
         <footer class="app_contenido" id="navegacion">
             <button class="btn_navegacion" id="btn_perfil">
-                <a href="/perfil">
+                <a href="../views/perfil.html">
                     <img class="img_navegacion" src="/assets/usuario.svg"/>
                 </a>
             </button>
@@ -132,6 +125,6 @@
             }
         });
       </script>
-    <script src="/js/matches.js"></script>
+    <script src="/js/perfil.js"></script>
 </body>
 </html>
