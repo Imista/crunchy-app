@@ -9,6 +9,10 @@ router.get("/", isLoggedIn, (req, res) => {
     res.sendFile(views + "/matches.html");
 });
 
+router.get("/perfil", isLoggedIn, (req, res) => {
+    res.sendFile(views + "/perfil.html");
+});
+
 router.get("/register", (req, res) => {
     res.sendFile(views + "/register.html");
 });
