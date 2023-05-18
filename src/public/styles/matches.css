@@ -1,0 +1,131 @@
+#btn_categoria {
+    position: absolute;
+    right: 4.445%;
+    left: 87.778%;
+}
+
+#img_categoria {
+    filter: invert(22%) sepia(44%) saturate(4326%) hue-rotate(170deg) brightness(96%) contrast(104%);
+}
+
+.comidas {
+    height: 74.375%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#img_comida {
+    background-color: rgb(212, 212, 212);
+    border-radius: 12px;
+    width: 91.112%;
+    height: 94.118%;
+}
+
+.fondo_comida {
+    position: absolute;
+    width: 91.112%;
+    height: 26.6807%;
+    background-color: var(--fondo-D);
+    bottom: 2.803%;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, rgba(28, 28, 28, 0.25) 24.27%, rgba(28, 28, 28, 0.5) 46.67%, rgba(28, 28, 28, 0.75) 68.54%, #1C1C1C 90.1%);
+}
+
+.informacion {
+    position: absolute;
+    width: 95.122%;
+    height: 37.008%;
+    bottom: 9.449%;
+}
+
+.txt_nombre {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6.667vw;
+    line-height: 3.75vh;
+    color: var(--fondo-L);
+    display: block;
+    margin-bottom: 1.283%;
+}
+
+.txt_local {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3.334vw;
+    line-height: 2.1875vh;
+    color: var(--fondo-L);
+    display: block;
+}
+
+.btn_ingredientes {
+    position: absolute;
+    padding: 0;
+    border: 0;
+    height: 4.202%;
+    width: 5.556%;
+    right: 5.556%;
+    bottom: 3.361%;
+    border-radius: 50%;
+    background-color: var(--fondo-L);
+    aspect-ratio: 1/1;
+}
+
+.img_ingredientes {
+    height: 100%;
+    width: 100%;
+    filter: invert(28%) sepia(69%) saturate(1808%) hue-rotate(13deg) brightness(103%) contrast(101%);
+}
+
+.gustos {
+    position: relative;
+    height: 11.25%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6.667%;
+}
+
+.btn_gustos {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: var(--naranja-oscuro-L);
+    border-radius: 50%;
+    height: 83.334%;
+    width: 16.667%;
+}
+
+.img_gustos {
+    height: 50%;
+    width: 50%;
+    border-radius: 25%;
+    filter: invert(98%) sepia(1%) saturate(359%) hue-rotate(198deg) brightness(116%) contrast(93%);
+}
+
+@media (max-width: 720) {
+    .btn_ingredientes {
+        height: 4.202%;
+        width: 5.556%;
+    }
+}
+
+@media (min-width: 721px) {
+    .txt_nombre {
+        font-size: 48px;
+    }
+
+    .txt_local {
+        font-size: 24px;
+    }
+
+    .btn_ingredientes {
+        height: 40px;
+        width: 40px;
+    }
+}
