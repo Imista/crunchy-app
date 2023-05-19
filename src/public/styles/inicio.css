@@ -8,9 +8,8 @@
 
 .img_logo {
     position: relative;
-    width: 43.334%;
-    height: 0;
-    padding-bottom: 43.334%;
+    width: 43.334vw;
+    height: 43.334vw;
     background-color: var(--azul-claro-L);
     bottom: 5.674%;
 }
@@ -88,4 +87,23 @@ a {
     font-weight: 400;
     font-size: 5.278vw;
     color: var(--azul-oscuro-L);
+}
+
+@media (min-width: 721px){
+    .img_logo {
+        width: 312px;
+        height: 312px;
+    }
+
+    .txt_crunchy {
+        font-size: 96px;
+    }
+
+    .txt_ingreso {
+        font-size: 38px;
+    }
+
+    .txt_registro {
+        font-size: 38px;
+    }
 }

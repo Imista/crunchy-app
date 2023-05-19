@@ -22,8 +22,8 @@ const username = getCookie("username");
 
 const options = {
     method: "GET",
-    url: `http://localhost:3000/api/v1/usuarios/u/${username}`,
-    // url: "https://crunchy-service.onrender.com/api/v1/platillos",
+    // url: `http://localhost:3000/api/v1/usuarios/u/${username}`,
+    url: `https://crunchy-service.onrender.com/api/v1/usuarios/u/${username}`,
 };
 
 axios

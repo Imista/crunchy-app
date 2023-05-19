@@ -32,7 +32,7 @@
     border-radius: 0 24px 0 0;
 }
 
-#txt_saludo {
+.txt_saludo {
     color: var(--fondo-L);
     font-family: 'Lato';
     font-style: normal;
@@ -80,7 +80,7 @@
         width: 396px;
     }
 
-    #txt_saludo {
+    .txt_saludo {
         font-size: 48px;
     }
 

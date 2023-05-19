@@ -17,7 +17,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 4.445vw;
-    display: block;
+    display: flex;
     margin-bottom: 6.098%;
 }
 
@@ -30,9 +30,8 @@
 
 #img_perfil {
     border-radius: 50%;
-    height: 0;
-    width: 33.335%;
-    padding-bottom: 33.335%;
+    height: 33.335vw;
+    width: 33.335vw;
     background-color: var(--azul-claro-L);
 }
 
@@ -51,6 +50,11 @@
 }
 
 @media (min-width: 721px) {
+    #img_perfil {
+        height: 240px;
+        width: 240px;
+    }
+
     .configuracion {
         width: 656px;
     }

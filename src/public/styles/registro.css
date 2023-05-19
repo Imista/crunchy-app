@@ -1,0 +1,134 @@
+.logo {
+    height: 22.969%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.img_logo {
+    position: relative;
+    width: 27.778vw;
+    height: 27.778vw;
+    background-color: var(--azul-claro-L);
+    bottom: 8.164%;
+}
+
+.titulo {
+    height: 4.532%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt_crunchy {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 600;
+    margin: 0;
+    font-size: 6.667vw;
+}
+
+.ingreso_datos {
+    height: 48.75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5.128%;
+}
+
+.datos {
+    height: 18.59%;
+    width: 91.112%;
+}
+
+.txt_datos {
+    display: block;
+    margin: 0 0 1.22% 0;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.334vw;
+}
+
+.inp_datos {
+    height: 41.38%;
+    width: 90.244%;
+    padding: 0;
+    border: 2px solid var(--azul-oscuro-L);
+    border-radius: 32px;
+    background-color: var(--fondo-L);
+    padding: 2.44% 4.879%;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.334vw;
+}
+
+.botones {
+    height: 23.75%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 9.01%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn_ingreso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52.223%;
+    height: 22.523%;
+    padding: 0;
+    border: 0;
+    border-radius: 32px;
+    background-color: var(--azul-claro-L);
+}
+
+.txt_ingreso {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.278vw;
+    text-decoration: none;
+    color: var(--fondo-L);
+}
+
+@media (min-width: 721px){
+    .img_logo {
+        height: 200px;
+        width: 200px;
+    }
+
+    .inp_datos {
+        height: 48px;
+        width: 592px;
+        padding: 16px 32px;
+        font-size: 24px;
+    }
+
+    .btn_ingreso {
+        width: 376px;
+        height: 100px;
+    }
+
+    .txt_datos {
+        margin: 0 0 8px 0;
+        font-size: 24px;
+    }
+
+    .txt_crunchy {
+        font-size: 48px;
+    }
+
+    .txt_ingreso {
+        font-size: 38px;
+    }
+}

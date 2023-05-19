@@ -1,9 +1,3 @@
-#btn_categoria {
-    position: absolute;
-    right: 4.445%;
-    left: 87.778%;
-}
-
 #img_categoria {
     filter: invert(22%) sepia(44%) saturate(4326%) hue-rotate(170deg) brightness(96%) contrast(104%);
 }

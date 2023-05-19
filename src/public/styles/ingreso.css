@@ -1,5 +1,5 @@
 .logo {
-    height: 44.0625%;
+    height: 33.125%;
     position: relative;
     display: flex;
     align-items: flex-end;
@@ -8,15 +8,14 @@
 
 .img_logo {
     position: relative;
-    width: 43.334%;
-    height: 0;
-    padding-bottom: 43.334%;
+    width: 27.778vw;
+    height: 27.778vw;
     background-color: var(--azul-claro-L);
-    bottom: 5.674%;
+    bottom: 8.164%;
 }
 
 .titulo {
-    height: 13.75%;
+    height: 4.532%;
     position: relative;
     display: flex;
     align-items: center;
@@ -28,50 +27,69 @@
     font-style: normal;
     font-weight: 600;
     margin: 0;
-    font-size: 13.334vw;
+    font-size: 6.667vw;
+}
+
+.ingreso_datos {
+    height: 27.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 11.364%;
+}
+
+.datos {
+    height: 32.955%;
+    width: 91.112%;
+}
+
+.txt_datos {
+    display: block;
+    margin: 0 0 1.22% 0;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.334vw;
+}
+
+.inp_datos {
+    height: 41.38%;
+    width: 90.244%;
+    padding: 0;
+    border: 2px solid var(--azul-oscuro-L);
+    border-radius: 32px;
+    background-color: var(--fondo-L);
+    padding: 2.44% 4.879%;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.334vw;
 }
 
 .botones {
-    height: 42.1875%;
-    display: inline-block;
-}
-
-#btn_ingreso {
-    position: relative;
-    left: 4.445%;
-    display: flex;
-    width: 91.112%;
-    height: 18.519%;
-    border: none;
-    border-radius: 32px;
+    height: 34.688%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0;
-    background-color: var(--azul-oscuro-L);
-    margin-bottom: 4.445%;
-}
-
-#btn_registro {
-    position: relative;
-    left: 4.445%;
-    display: flex;
-    width: 91.112%;
-    height: 18.519%;
-    border: 4px solid var(--azul-oscuro-L);
-    border-radius: 32px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background-color: var(--fondo-L);
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 9.01%;
 }
 
 a {
     text-decoration: none;
+}
+
+.btn_ingreso {
     display: flex;
+    align-items: center;
     justify-content: center;
+    width: 52.223%;
+    height: 22.523%;
+    padding: 0;
+    border: 0;
+    border-radius: 32px;
+    background-color: var(--azul-claro-L);
 }
 
 .txt_ingreso {
@@ -79,13 +97,38 @@ a {
     font-style: normal;
     font-weight: 400;
     font-size: 5.278vw;
+    text-decoration: none;
     color: var(--fondo-L);
 }
 
-.txt_registro {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 5.278vw;
-    color: var(--azul-oscuro-L);
+@media (min-width: 721px){
+    .img_logo {
+        height: 200px;
+        width: 200px;
+    }
+
+    .inp_datos {
+        height: 48px;
+        width: 592px;
+        padding: 16px 32px;
+        font-size: 24px;
+    }
+
+    .btn_ingreso {
+        width: 376px;
+        height: 100px;
+    }
+
+    .txt_datos {
+        margin: 0 0 8px 0;
+        font-size: 24px;
+    }
+
+    .txt_crunchy {
+        font-size: 48px;
+    }
+
+    .txt_ingreso {
+        font-size: 38px;
+    }
 }

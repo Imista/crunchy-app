@@ -2,6 +2,7 @@ const txt_nombre = document.querySelector("#txt_nombre");
 const txt_local = document.querySelector("#txt_local");
 const btn_dislike = document.querySelector("#btn_dislike");
 const btn_like = document.querySelector("#btn_like");
+const img_comida = document.querySelector("#img_comida");
 
 function getCookie(name) {
     const cookies = document.cookie.split(";");
@@ -44,4 +45,5 @@ function display_new_platillo(platillos) {
     const actual_platillo = platillos.shift();
     txt_nombre.textContent = actual_platillo.name;
     txt_local.textContent = actual_platillo.local.name;
+    img_comida.src = actual_platillo.photoUrl;
 }

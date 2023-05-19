@@ -13,8 +13,12 @@ router.get("/perfil", isLoggedIn, (req, res) => {
     res.sendFile(views + "/perfil.html");
 });
 
-router.get("/register", (req, res) => {
-    res.sendFile(views + "/register.html");
+router.get("/inicio", (req, res) => {
+    res.sendFile(views + "/inicio.html");
+});
+
+router.get("/ingreso", (req, res) => {
+    res.sendFile(views + "/ingreso.html");
 });
 
 module.exports = { router };
