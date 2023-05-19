@@ -5,20 +5,12 @@
     left: -55%;
     background-color: var(--fondo-L);
     transition: all 0.3s ease;
-    z-index: 2;
+    z-index: 3;
     border-radius: 0 24px 24px 0;
 }
 
 .hamburguesa.open {
     left: 0;
-}
-
-.app_contenido {
-    transition: filter 0.3s ease;
-}
-
-.reducir-iluminacion {
-    filter: blur(10px) contrast(1.8);
 }
 
 .saludo {
@@ -73,6 +65,11 @@
 .img_opciones {
     width: 100%;
     filter: invert(10%) sepia(0%) saturate(44%) hue-rotate(260deg) brightness(112%) contrast(102%);
+}
+
+.espacio_blanco {
+    position: relative;
+    width: 45%;
 }
 
 @media (min-width: 721px) {

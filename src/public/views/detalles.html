@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/general.css"/>
+    <link rel="stylesheet" href="/styles/detalles.css"/>
+    <link rel="stylesheet" href="/styles/overlay_pedido.css"/>
+    <title>Crunchy</title>
+</head>
+<body>
+    <div class="app">
+        <header id="menus">
+            <button class="btn_regresar" id="btn_regresar">
+                <a href="../views/carta.html">
+                    <img class="img_regresar" id="img_regresar" src="/assets/regresar.svg"></img>
+                </a>
+            </button>
+        </header>
+        <div class="imagen_match">
+            <img id="img_match" src=""></img>
+        </div>
+        <div class="platillo">
+            <div class="contenido_ordenar">
+                <div class="texto">
+                    <p class="txt_platillo">Platillo agregado correctamente</p>
+                </div>
+                <div class="botones">
+                    <button class="btn_platillo" id="btn_seguir">
+                        <a href="../views/carta.html">
+                            <p class="txt_seguir">Seguir ordenando</p>
+                        </a>
+                    </button>
+                    <button class="btn_platillo" id="btn_mesa">
+                        <a href="../views/mesa.html">
+                            <p class="txt_mesa">Ir a la mesa</p>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="fondo_negro"></div>
+        <div class="detalles_match">
+            <span class="txt_detalles_match" id="txt_nombre_match">Nombre platillo</span>
+            <span class="txt_detalles_match" id="txt_local_match">Local</span>
+            <span class="txt_detalles_match" id="txt_ingredientes_match">Ingredientes</span>
+        </div>
+        <footer class="ordenar">
+            <button class="btn_ordenar" id="btn_ordenar">
+                <a>
+                    <p class="txt_ordenar">Ordenar</p>
+                    <img class="img_ordenar" src="/assets/ordenar.svg"/>
+                </a>
+            </button>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const overlay = document.querySelector('.platillo');
+        const ordenar = document.querySelector('#btn_ordenar');
+        const seguir = document.querySelector('#btn_seguir');
+        const mesa = document.querySelector('#btn_mesa');
+        const fondo = document.querySelector('.fondo_negro');
+
+        ordenar.addEventListener('click', (event) => {
+            overlay.style.display = "flex";
+            fondo.style.display = "flex";
+            fondo.style.zIndex = '4';
+        });
+
+    </script>
+    <script src="/js/detalles.js"></script>
+</body>
+</html>

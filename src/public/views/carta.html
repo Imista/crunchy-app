@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/general.css"/>
-    <link rel="stylesheet" href="/styles/matches.css"/>
+    <link rel="stylesheet" href="/styles/carta.css"/>
     <link rel="stylesheet" href="/styles/hamburguesa.css"/>
     <link rel="stylesheet" href="/styles/overlay_cerrar.css"/>
     <title>Crunchy</title>
@@ -19,6 +19,9 @@
             <div class="btn_menus" id="btn_hamburguesa">
                 <img class="img_menus" id="img_hamburguesa" src="/assets/menu-hamburguesa.svg"></img>
             </div>
+            <button class="btn_menus" id="btn_filtro">
+                <img class="img_menus" id="img_filtro" src="/assets/filtro.svg"></img>
+            </button>
         </header>
         <div class="hamburguesa">
             <div class="saludo">
@@ -69,22 +72,8 @@
         </div>
         <div class="fondo_negro"></div>
         <div class="fondo_negro2"></div>
-        <div class="app_contenido" id="comidas">
-            <img class="img_comida" id="img_comida"></img>
-            <div class="fondo_comida">
-                <div class="informacion">
-                    <span class="txt_nombre" id="txt_nombre">Nombre de la comida</span>
-                    <span class="txt_local" id="txt_local">Local</span>
-                </div>
-            </div>
-        </div>
-        <div class="app_contenido" id="gustos">
-            <button class="btn_gustos" id="btn_dislike">
-                <img class="img_gustos" src="/assets/dislike.svg"></img>
-            </button>
-            <button class="btn_gustos" id="btn_like">
-                <img class="img_gustos" src="/assets/like.svg"></img>
-            </button>
+        <div class="app_contenido" id="carta">
+            
         </div>
         <footer class="app_contenido" id="navegacion">
             <button class="btn_navegacion" id="btn_perfil">
@@ -157,7 +146,7 @@
             fondo.style.display = "none";
             fondo2.style.display = "none";
         });
-      </script>
-    <script src="/js/matches.js"></script>
+    </script>
+    <script src="/js/carta.js"></script>
 </body>
 </html>

@@ -58,7 +58,6 @@
 }
 
 #gustos {
-    position: relative;
     height: 11.25%;
     display: flex;
     align-items: flex-start;
@@ -72,7 +71,7 @@
     border: 0;
     background-color: var(--naranja-oscuro-L);
     border-radius: 50%;
-    width: 16.667%;
+    width: 16.667vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,8 +104,7 @@
         font-size: 24px;
     }
 
-    .btn_ingredientes {
-        height: 40px;
-        width: 40px;
+    .btn_gustos {
+        width: 120px;
     }
 }

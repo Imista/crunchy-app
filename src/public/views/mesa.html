@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/general.css"/>
+    <link rel="stylesheet" href="/styles/mesa.css"/>
+    <link rel="stylesheet" href="/styles/overlay_orden.css"/>
+    <link rel="stylesheet" href="/styles/overlay_cancelar.css"/>
+    <link rel="stylesheet" href="/styles/overlay_exito.css"/>
+    <title>Crunchy</title>
+</head>
+<body>
+    <div class="app">
+        <header id="menus">
+            <button class="btn_regresar" id="btn_regresar">
+                <a href="../views/matches.html">
+                    <img class="img_regresar" id="img_regresar" src="/assets/regresar.svg"></img>
+                </a>
+            </button>
+        </header>
+        <div id="mesa">
+            <div class="item_mesa">
+                <div class="item_pedido">
+                    <div class="platillo_imagen">
+                        <img id="img_platillo" src=""></img>
+                    </div>
+                    <div class="platillo_datos">
+                        <span id="txt_nombre">Nombre platillo</span>
+                        <p id="txt_precio">$<span>00.00</span></p>
+                    </div>
+                    <div class="platillo_opciones">
+                        <button id="btn_cerrar">
+                            <img id="img_cerrar" src="/assets/eliminar.svg"></img>
+                        </button>
+                        <div class="cantidad">
+                            <button class="btn_cantidad" id="btn_menos">
+                                <img id="img_menos" src="/assets/menos.svg"></img>
+                            </button>
+                            <span id="txt_total">0</span>
+                            <button class="btn_cantidad" id="btn_mas">
+                                <img id="img_mas" src="/assets/mas.svg"></img>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fondo_negro"></div>
+        <div id="datos">
+            <div class="datos_user" id="direccion">
+                <p class="txt_user">Dirección</p>
+                <input type="text" class="inp_datos" id="inp_direccion" placeholder="Añade una dirección">
+            </div>
+            <div class="datos_user" id="pago">
+                <p class="txt_user">Pago</p>
+                <input type="text" class="inp_datos" id="inp_pago" placeholder="Añade un método de pago">
+            </div>
+        </div>
+        <div class="orden_hecha">
+            <div class="contenido_orden_hecha">
+                <p class="txt_hecha">Su pedido ha sido ordenado exitosamente, dentro de poco llegará a su domicilio</p>
+            </div>
+        </div>
+        <div class="cancelar_pedido">
+            <div class="contenido_cancelar">
+                <div class="texto_cancelar">
+                    <p class="txt_cancelar">¿Deseas cancelar el pedido?</p>
+                </div>
+                <div class="botones_cancelar">
+                    <button class="btn_cancelar" id="btn_si">
+                        <p class="txt_si">Si</p>
+                    </button>
+                    <button class="btn_cancelar" id="btn_no">
+                        <p class="txt_no">No</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="exito">
+            <div class="contenido_exito">
+                <p class="txt_exito">Su pedido ha sido cancelado exitosamente</p>
+            </div>
+        </div>
+        <footer id="ordenar_pedido">
+            <div class="botones_orden">
+                <button class="btn_pedido" id="btn_ordenar">
+                    <p id="txt_ordenar">Ordenar</p>
+                </button>
+                <button class="btn_pedido" id="btn_cancelar">
+                    <p id="txt_cancelar">Cancelar</p>
+                </button>
+            </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const btnMenos = document.getElementById('btn_menos');
+        const btnMas = document.getElementById('btn_mas');
+        const txtTotal = document.getElementById('txt_total');
+        const orden_hecha = document.querySelector('.orden_hecha');
+        const cancelar_pedido = document.querySelector('.cancelar_pedido');
+        const exito = document.querySelector('.exito');
+        const fondo = document.querySelector('.fondo_negro');
+        const ordenar = document.getElementById('btn_ordenar');
+        const cancelar = document.getElementById('btn_cancelar');
+        const si = document.getElementById('btn_si');
+        const no = document.getElementById('btn_no');
+      
+        let cantidad = 0;
+      
+        btnMenos.addEventListener('click', () => {
+          if (cantidad > 0) {
+            cantidad--;
+            actualizarCantidad();
+          }
+        });
+      
+        btnMas.addEventListener('click', () => {
+          cantidad++;
+          actualizarCantidad();
+        });
+      
+        function actualizarCantidad() {
+          txtTotal.textContent = cantidad;
+        }
+
+        ordenar.addEventListener('click', (event) => {
+            orden_hecha.style.display = "flex";
+            fondo.style.display = "flex";
+            
+            setTimeout(() => {
+                orden_hecha.style.display = "none";
+                fondo.style.display = "none";
+                window.location.href = "matches.html";
+            }, 2500);
+        });
+
+        cancelar.addEventListener('click', (event) => {
+            cancelar_pedido.style.display = "flex";
+            fondo.style.display = "flex";
+
+            si.addEventListener('click', (event) => {
+                exito.style.display = "flex";
+                fondo.style.display = "flex";
+                
+                setTimeout(() => {
+                    orden_hecha.style.display = "none";
+                    fondo.style.display = "none";
+                    window.location.href = "matches.html";
+                }, 2500);
+            });
+
+            no.addEventListener('click', (event) => {
+                cancelar_pedido.style.display = "none";
+                fondo.style.display = "none";
+            })
+        })
+      </script>
+    <script src="/js/mesa.js"></script>
+</body>
+</html>

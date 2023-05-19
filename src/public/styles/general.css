@@ -1,6 +1,7 @@
 :root {
     --fondo-L: #F6F6F6;
     --naranja-claro-L: #BB5300;
+    --naranja-claro-L-025: #E7CDB8;
     --naranja-oscuro-L: #A34900;
     --azul-claro-L: #007A90;
     --azul-oscuro-L: #006D80;
@@ -18,11 +19,32 @@ body {
 .app {
     display: flex;
     flex-direction: column;
-  }
+    z-index: 1;
+}
+
+.fondo_negro {
+    position: absolute;
+    display: none;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background-color: var(--fondo-D);
+    opacity: 0.5;
+}
+
+.fondo_negro2 {
+    position: absolute;
+    display: none;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background-color: var(--fondo-D);
+    opacity: 0.5;
+}
   
 
 #menus {
-    height: 8.125%;
+    height: 8.125vh;
     position: relative;
 }
 

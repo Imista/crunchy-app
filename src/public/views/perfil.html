@@ -10,18 +10,19 @@
     <link rel="stylesheet" href="/styles/general.css"/>
     <link rel="stylesheet" href="/styles/perfil.css"/>
     <link rel="stylesheet" href="/styles/hamburguesa.css"/>
+    <link rel="stylesheet" href="/styles/overlay_cerrar.css"/>
     <title>Crunchy</title>
 </head>
 <body class="fondo">
     <div class="app">
         <header class="app_contenido" id="menus">
             <div class="btn_menus" id="btn_hamburguesa">
-                <img class="img_menus" id="img_hamburguesa" src="/assets/menu-hamburguesa.svg" />
+                <img class="img_menus" id="img_hamburguesa" src="/assets/menu-hamburguesa.svg"></img>
             </div>
         </header>
         <div class="app_contenido" id="datos_personales">
             <div class="foto_perfil">
-                <img id="img_perfil"/>
+                <img id="img_perfil"></img>
             </div>
             <div class="nombre">
                 <span id="txt_nombre_user">Nombre Apellidos</span>
@@ -29,64 +30,77 @@
         </div>
         <div class="hamburguesa">
             <div class="saludo">
-                <span id="txt_saludo">¡Hola, usuario!</span>
+                <p class="txt_saludo">¡Hola, <span class="txt_saludo" id="txt_saludo">usuario</span>!</p>
             </div>
             <ul>
                 <li>
                     <div class="opciones">
-                        <img class="img_opciones" src="/assets/principal.svg" />
+                        <img class="img_opciones" src="/assets/principal.svg"></img>
                     </div>
-                    <a href="">Pagina principal</a>
+                    <a href="/">Pagina principal</a>
                 </li>
                 <li>
                     <div class="opciones">
-                        <img class="img_opciones" src="/assets/historial.svg" />
+                        <img class="img_opciones" src="/assets/historial.svg"></img>
                     </div>
-                    <a href="../views/pedido.html">Historial</a>
+                    <a href="/pedido">Pedidos</a>
                 </li>
                 <li>
                     <div class="opciones">
-                        <img class="img_opciones" src="/assets/mesa.svg" />
+                        <img class="img_opciones" src="/assets/mesa.svg"></img>
                     </div>
-                    <a href="../views/mesa.html">Mesa</a>
+                    <a href="/mesa">Mesa</a>
                 </li>
                 <li>
                     <div class="opciones">
-                        <img class="img_opciones" src="/assets/oscuro.svg" />
+                        <img class="img_opciones" src="/assets/salir.svg"></img>
                     </div>
-                    <a href="#">Versión Oscura</a>
-                </li>
-                <li>
-                    <div class="opciones">
-                        <img class="img_opciones" src="/assets/salir.svg" />
-                    </div>
-                    <a href="#">Salir</a></li>
+                    <a href="#" id="btn_salir">Salir</a></li>
             </ul>
         </div>
+        <div class="cerrar_sesion">
+            <div class="contenido_cerrar">
+                <div class="texto">
+                    <p class="txt_cerrar">¿Deseas cerrar sesión?</p>
+                </div>
+                <div class="botones">
+                    <button class="btn_cerrar" id="btn_aceptar">
+                        <a href="../views/inicio.html">
+                            <p class="txt_aceptar">Aceptar</p>
+                        </a>
+                    </button>
+                    <button class="btn_cerrar" id="btn_cancelar">
+                        <p class="txt_cancelar">Cancelar</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="fondo_negro"></div>
+        <div class="fondo_negro2"></div>
         <div class="app_contenido" id="configuracion">
-            <p class="txt_configuracion">Usuario: <span id="txt_configuracion_usuario">chiva de corazon</span></p>
-            <p class="txt_configuracion">Correo: <span id="txt_configuracion_correo">jc_*****************@hotmail.com</span></p>
-            <p class="txt_configuracion">Contraseña: *********</p>
+            <p class="txt_configuracion">Usuario: <span class="txt_configuracion" id="txt_usuario">jucangod</span></p>
+            <p class="txt_configuracion">Correo: <span class="txt_configuracion" id="txt_correo">jc_espinozarodriguez@hotmail.com</span></p>
+            <p class="txt_configuracion">Contraseña: <span class="txt_configuracion" id="txt_contraseña">****</span></p>
         </div>
         <footer class="app_contenido" id="navegacion">
             <button class="btn_navegacion" id="btn_perfil">
                 <a href="/perfil">
-                    <img class="img_navegacion" src="/assets/usuario.svg"/>
+                    <img class="img_navegacion" src="/assets/usuario.svg"></img>
                 </a>
             </button>
             <button class="btn_navegacion" id="btn_matches">
                 <a href="/">
-                    <img class="img_navegacion" src="/assets/matches.svg"/>
+                    <img class="img_navegacion" src="/assets/matches.svg"></img>
                 </a>
             </button>
             <button class="btn_navegacion" id="btn_carta">
                 <a href="/carta">
-                    <img class="img_navegacion" src="/assets/carta.svg"/>
+                    <img class="img_navegacion" src="/assets/carta.svg"></img>
                 </a>
             </button>
             <button class="btn_navegacion" id="btn_busqueda">
                 <a href="/busqueda">
-                    <img class="img_navegacion" src="/assets/busqueda.svg"/>
+                    <img class="img_navegacion" src="/assets/busqueda.svg"></img>
                 </a>
             </button>
         </footer>
@@ -95,34 +109,49 @@
     <script>
         const toggle = document.getElementById('btn_hamburguesa');
         const sidebar = document.querySelector('.hamburguesa');
-        const menuPrincipalLink = document.querySelector('.hamburguesa ul li a[href=""]'); 
+        const menuPrincipalLink = document.querySelector('.hamburguesa ul li a[href="/"]'); 
         const appContenidos = document.querySelectorAll('.app_contenido');
+        const cerrarSesion = document.querySelector('#btn_salir');
+        const cancelar = document.querySelector('#btn_cancelar');
+        const fondo = document.querySelector('.fondo_negro');
+        const fondo2 = document.querySelector('.fondo_negro2');
+        const overlay = document.querySelector('.cerrar_sesion');
 
         menuPrincipalLink.addEventListener('click', () => {
             sidebar.classList.remove('open');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target) && !overlay.contains(event.target)) {
+                sidebar.classList.remove('open');
+                fondo.style.display = "none";
+                fondo2.style.display = "none";
+            }
         });
 
         toggle.addEventListener('click', () => {
             sidebar.classList.toggle('open');
 
             if (sidebar.classList.contains('open')) {
-                appContenidos.forEach((contenedor) => {
-                    contenedor.classList.add('reducir-iluminacion');
-                });
+                fondo.style.zIndex = '2';
+                fondo.style.display = "flex";
             } else {
-                appContenidos.forEach((contenedor) => {
-                    contenedor.classList.remove('reducir-iluminacion');
-                });
+                fondo.style.zIndex = '0';
+                fondo.style.display = "none";
             }
         });
 
-        document.addEventListener('click', (event) => {
-            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
-                sidebar.classList.remove('open');
-                appContenidos.forEach((contenedor) => {
-                    contenedor.classList.remove('reducir-iluminacion');
-                });
-            }
+        cerrarSesion.addEventListener('click', (event) => {
+            overlay.style.display = "flex";
+            fondo2.style.display = "flex";
+            fondo2.style.zIndex = '4';
+        });
+
+        cancelar.addEventListener('click', (event) => {
+            sidebar.classList.remove('open');
+            overlay.style.display = "none";
+            fondo.style.display = "none";
+            fondo2.style.display = "none";
         });
       </script>
     <script src="/js/perfil.js"></script>

@@ -13,6 +13,14 @@ router.get("/perfil", isLoggedIn, (req, res) => {
     res.sendFile(views + "/perfil.html");
 });
 
+router.get("/carta", isLoggedIn, (req, res) => {
+    res.sendFile(views + "/carta.html");
+});
+
+router.get("/busqueda", isLoggedIn, (req, res) => {
+    res.sendFile(views + "/busqueda.html");
+});
+
 router.get("/inicio", (req, res) => {
     res.sendFile(views + "/inicio.html");
 });
