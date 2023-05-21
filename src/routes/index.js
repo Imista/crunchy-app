@@ -28,5 +28,8 @@ router.get("/inicio", (req, res) => {
 router.get("/ingreso", (req, res) => {
     res.sendFile(views + "/ingreso.html");
 });
+router.get("/registro", (req, res) => {
+    res.sendFile(views + "/registro.html");
+});
 
 module.exports = { router };

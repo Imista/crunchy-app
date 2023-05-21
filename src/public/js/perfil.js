@@ -1,9 +1,5 @@
-const txt_usuario = document.querySelector(
-    "#txt_usuario"
-);
-const txt_correo = document.querySelector(
-    "#txt_correo"
-);
+const txt_usuario = document.querySelector("#txt_usuario");
+const txt_correo = document.querySelector("#txt_correo");
 const txt_nombre_user = document.querySelector("#txt_nombre_user");
 const img_perfil = document.querySelector("#img_perfil");
 
@@ -33,9 +29,7 @@ axios
         txt_nombre_user.textContent = `${data.name} ${data.lastName}`;
         txt_usuario.textContent = data.username;
         txt_correo.textContent = data.email;
-        img_perfil.src =
-            data.photoUrl ||
-            "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
+        img_perfil.src = data.photoUrl;
     })
     .catch(function (error) {
         console.error(error);
