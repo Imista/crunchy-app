@@ -39,12 +39,7 @@
                     </div>
                     <a href="/">Pagina principal</a>
                 </li>
-                <li>
-                    <div class="opciones">
-                        <img class="img_opciones" src="/assets/historial.svg"></img>
-                    </div>
-                    <a href="/pedido">Pedidos</a>
-                </li>
+
                 <li>
                     <div class="opciones">
                         <img class="img_opciones" src="/assets/mesa.svg"></img>
@@ -65,9 +60,7 @@
                 </div>
                 <div class="botones">
                     <button class="btn_cerrar" id="btn_aceptar">
-                        <a href="../views/inicio.html">
                             <p class="txt_aceptar">Aceptar</p>
-                        </a>
                     </button>
                     <button class="btn_cerrar" id="btn_cancelar">
                         <p class="txt_cancelar">Cancelar</p>
@@ -153,6 +146,13 @@
             fondo.style.display = "none";
             fondo2.style.display = "none";
         });
+
+        const btn_aceptar = document.querySelector("#btn_aceptar");
+        btn_aceptar.addEventListener("click", () => {
+            
+            document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.location.href = "/";
+        })
       </script>
     <script src="/js/perfil.js"></script>
 </body>
