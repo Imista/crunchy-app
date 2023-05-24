@@ -4,6 +4,7 @@ const txt_local_match = document.querySelector("#txt_local_match");
 const txt_ingredientes_match = document.querySelector(
     "#txt_ingredientes_match"
 );
+const btn_ordenar = document.querySelector("#btn_ordenar");
 
 const url = window.location.href;
 const platilloId = url.split("/").pop();
@@ -25,3 +26,41 @@ axios
     .catch(function (error) {
         console.error(error);
     });
+
+function getCookie(name) {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.startsWith(name + "=")) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return null;
+}
+
+const username = getCookie("username");
+
+(async () => {
+    const userData = await axios.request({
+        method: "GET",
+        url: `https://crunchy-service.onrender.com/api/v1/usuarios/u/${username}`,
+    });
+
+    const userId = userData.data.body.id;
+
+    btn_ordenar.addEventListener("click", async () => {
+        const pedidoData = await axios.request({
+            method: "GET",
+            url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/last`,
+        });
+
+        const pedidoId = pedidoData.data.body.id;
+
+        await axios.request({
+            method: "POST",
+            url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}/platillos`,
+            headers: { "Content-Type": "application/json" },
+            data: { platilloId },
+        });
+    });
+})();

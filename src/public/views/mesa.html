@@ -24,31 +24,7 @@
             </button>
         </header>
         <div id="mesa">
-            <div class="item_mesa">
-                <div class="item_pedido">
-                    <div class="platillo_imagen">
-                        <img id="img_platillo" src=""></img>
-                    </div>
-                    <div class="platillo_datos">
-                        <span id="txt_nombre">Nombre platillo</span>
-                        <p id="txt_precio">$<span>00.00</span></p>
-                    </div>
-                    <div class="platillo_opciones">
-                        <button id="btn_cerrar">
-                            <img id="img_cerrar" src="/assets/eliminar.svg"></img>
-                        </button>
-                        <div class="cantidad">
-                            <button class="btn_cantidad" id="btn_menos">
-                                <img id="img_menos" src="/assets/menos.svg"></img>
-                            </button>
-                            <span id="txt_total">0</span>
-                            <button class="btn_cantidad" id="btn_mas">
-                                <img id="img_mas" src="/assets/mas.svg"></img>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
         <div class="fondo_negro"></div>
         <div id="datos">
@@ -113,31 +89,11 @@
       
         let cantidad = 0;
       
-        btnMenos.addEventListener('click', () => {
-          if (cantidad > 0) {
-            cantidad--;
-            actualizarCantidad();
-          }
-        });
-      
-        btnMas.addEventListener('click', () => {
-          cantidad++;
-          actualizarCantidad();
-        });
-      
-        function actualizarCantidad() {
-          txtTotal.textContent = cantidad;
-        }
+    
 
         ordenar.addEventListener('click', (event) => {
             orden_hecha.style.display = "flex";
             fondo.style.display = "flex";
-            
-            setTimeout(() => {
-                orden_hecha.style.display = "none";
-                fondo.style.display = "none";
-                window.location.href = "matches.html";
-            }, 2500);
         });
 
         cancelar.addEventListener('click', (event) => {
@@ -147,12 +103,6 @@
             si.addEventListener('click', (event) => {
                 exito.style.display = "flex";
                 fondo.style.display = "flex";
-                
-                setTimeout(() => {
-                    orden_hecha.style.display = "none";
-                    fondo.style.display = "none";
-                    window.location.href = "matches.html";
-                }, 2500);
             });
 
             no.addEventListener('click', (event) => {

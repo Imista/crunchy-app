@@ -25,6 +25,10 @@ router.get("/detalles/:id", isLoggedIn, (req, res) => {
     res.sendFile(views + "/detalles.html");
 });
 
+router.get("/mesa", isLoggedIn, (req, res) => {
+    res.sendFile(views + "/mesa.html");
+});
+
 router.get("/inicio", (req, res) => {
     res.sendFile(views + "/inicio.html");
 });
