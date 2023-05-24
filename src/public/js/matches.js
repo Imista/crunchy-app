@@ -15,35 +15,57 @@ function getCookie(name) {
     return null;
 }
 
-const myCookieValue = getCookie("username");
-console.log(myCookieValue);
+const username = getCookie("username");
+console.log(username);
 
-const options = {
-    method: "GET",
-    url: "https://crunchy-service.onrender.com/api/v1/platillos",
-};
-
-axios
-    .request(options)
-    .then(function (response) {
-        const platillos = response.data.body;
-        display_new_platillo(platillos);
-
-        btn_like.addEventListener("click", () => {
-            display_new_platillo(platillos);
-        });
-
-        btn_dislike.addEventListener("click", () => {
-            display_new_platillo(platillos);
-        });
-    })
-    .catch(function (error) {
-        console.error(error);
+(async () => {
+    const userData = await axios.request({
+        method: "GET",
+        url: `https://crunchy-service.onrender.com/api/v1/usuarios/u/${username}`,
     });
 
-function display_new_platillo(platillos) {
-    const actual_platillo = platillos.shift();
-    txt_nombre.textContent = actual_platillo.name;
-    txt_local.textContent = actual_platillo.local.name;
-    img_comida.src = actual_platillo.photoUrl;
+    const userId = userData.data.body.id;
+
+    const platillosData = await axios.request({
+        method: "GET",
+        url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/recommendations`,
+    });
+
+    const platillos = platillosData.data.body;
+    let platillo = platillos.shift();
+    display_new_platillo(platillo);
+
+    btn_like.addEventListener("click", async () => {
+        await axios.request({
+            method: "POST",
+            url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/platillos/vistos`,
+            headers: { "Content-Type": "application/json" },
+            data: { platilloId: platillo.id },
+        });
+        await axios.request({
+            method: "POST",
+            url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/platillos`,
+            headers: { "Content-Type": "application/json" },
+            data: { platilloId: platillo.id },
+        });
+        platillo = platillos.shift();
+        display_new_platillo(platillo);
+    });
+
+    btn_dislike.addEventListener("click", async () => {
+        await axios.request({
+            method: "POST",
+            url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/platillos/vistos`,
+            headers: { "Content-Type": "application/json" },
+            data: { platilloId: platillo.id },
+        });
+        platillo = platillos.shift();
+        display_new_platillo(platillo);
+    });
+})();
+
+function display_new_platillo(platillo) {
+    txt_nombre.textContent = platillo.name;
+    txt_local.textContent = platillo.local.name;
+    img_comida.src = platillo.photoUrl;
 }
