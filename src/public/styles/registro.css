@@ -1,5 +1,5 @@
 .logo {
-    height: 22.969%;
+    height: 20%;
     position: relative;
     display: flex;
     align-items: flex-end;
@@ -10,8 +10,8 @@
     position: relative;
     width: 27.778vw;
     height: 27.778vw;
-    background-color: var(--azul-claro-L);
-    bottom: 8.164%;
+    bottom: 9.375%;
+    background-color: transparent;
 }
 
 .titulo {
@@ -31,26 +31,45 @@
 }
 
 .ingreso_datos {
-    height: 48.75%;
+    height: 55.469%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
-    gap: 5.128%;
+}
+
+.seccion_datos {
+    height: 16.339%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .datos {
-    height: 18.59%;
+    height: 16.339%;
     width: 91.112%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.datos_personales {
+    height: 100%;
+    width: 43.334%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .txt_datos {
     display: block;
-    margin: 0 0 1.22% 0;
+    margin: 0;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
     font-size: 3.334vw;
+    height: 24.138%;
 }
 
 .inp_datos {
@@ -67,8 +86,13 @@
     font-size: 3.334vw;
 }
 
+#inp_nombre, #inp_apellido {
+    padding: 5.129% 10.259%;
+    width: 79.488%;
+}
+
 .botones {
-    height: 23.75%;
+    height: 20%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -85,7 +109,7 @@ a {
     align-items: center;
     justify-content: center;
     width: 52.223%;
-    height: 22.523%;
+    height: 39.063%;
     padding: 0;
     border: 0;
     border-radius: 32px;
@@ -120,7 +144,6 @@ a {
     }
 
     .txt_datos {
-        margin: 0 0 8px 0;
         font-size: 24px;
     }
 

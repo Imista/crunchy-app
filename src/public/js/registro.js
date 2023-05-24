@@ -1,22 +1,33 @@
 const btn_iniciar = document.querySelector("#btn_iniciar");
+const inp_nombre = document.querySelector("#inp_nombre");
+const inp_apellido = document.querySelector("#inp_apellido");
 const inp_correo = document.querySelector("#inp_correo");
 const inp_usuario = document.querySelector("#inp_usuario");
 const inp_password = document.querySelector("#inp_password");
 const inp_c_password = document.querySelector("#inp_c_password");
 
 btn_iniciar.addEventListener("click", () => {
-    if (!inp_correo || !inp_usuario || !inp_password || !inp_c_password)
+    if (
+        !inp_nombre ||
+        !inp_apellido ||
+        !inp_correo ||
+        !inp_usuario ||
+        !inp_password ||
+        !inp_c_password
+    )
         alert("Complete fields!");
     else if (inp_password.value != inp_c_password.value)
         alert("Passwords do not match");
+    else if (inp_password.value.length < 8)
+        alert("Password lenght must be greater than 7");
     else {
         const options = {
             method: "POST",
             url: "https://crunchy-service.onrender.com/api/v1/usuarios",
             headers: { "Content-Type": "application/json" },
             data: {
-                name: "--",
-                lastName: "--",
+                name: inp_nombre.value,
+                lastName: inp_apellido.value,
                 email: inp_correo.value,
                 phone: "0000000000",
                 username: inp_usuario.value,
