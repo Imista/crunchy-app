@@ -23,7 +23,7 @@ axios
         txt_nombre_match.textContent = platillo.name;
         txt_local_match.textContent = platillo.local.name;
         txt_ingredientes_match.textContent = platillo.description;
-        txt_precio_match.textContent = `$ ${platillo.price}.00`;
+        txt_precio_match.textContent = `$ ${platillo.price}`;
     })
     .catch(function (error) {
         console.error(error);
