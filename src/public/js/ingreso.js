@@ -1,6 +1,7 @@
 const btn_iniciar = document.querySelector("#btn_iniciar");
 
 btn_iniciar.addEventListener("click", () => {
+    btn_iniciar.disabled = true;
     const user = document.querySelector("#inp_usuario");
     const pass = document.querySelector("#inp_password");
 
@@ -20,13 +21,10 @@ btn_iniciar.addEventListener("click", () => {
                 document.location.href = "/";
             })
             .catch(function (error) {
+                btn_iniciar.disabled = false;
                 alert("Invalid data");
                 user.value = "";
                 pass.value = "";
             });
-
-        if (true) {
-        } else {
-        }
     }
 });

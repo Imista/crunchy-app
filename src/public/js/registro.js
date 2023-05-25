@@ -7,6 +7,7 @@ const inp_password = document.querySelector("#inp_password");
 const inp_c_password = document.querySelector("#inp_c_password");
 
 btn_iniciar.addEventListener("click", () => {
+    btn_iniciar.disable = true;
     if (
         !inp_nombre ||
         !inp_apellido ||
@@ -46,6 +47,7 @@ btn_iniciar.addEventListener("click", () => {
             .catch(function (error) {
                 console.error(error);
                 alert("An error occurred. Check the fields and try again");
+                btn_iniciar.disable = false;
             });
     }
 });

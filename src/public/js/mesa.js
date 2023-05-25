@@ -1,6 +1,7 @@
 const contenedorMesa = document.querySelector("#mesa");
 const btn_cancelar = document.getElementById("btn_si");
 const btn_ordenar = document.getElementById("btn_ordenar");
+const inp_direccion = document.querySelector("#inp_direccion");
 
 function getCookie(name) {
     const cookies = document.cookie.split(";");
@@ -30,34 +31,43 @@ const username = getCookie("username");
             url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/last`,
         });
         const pedidoId = pedidoData.data.body.id;
+        const platillos = pedidoData.data.body.platillos;
 
         btn_cancelar.addEventListener("click", async () => {
-            await axios.request({
-                method: "DELETE",
-                url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}`,
-            });
-            setTimeout(() => {
-                orden_hecha.style.display = "none";
-                fondo.style.display = "none";
-                window.location.href = "/";
-            }, 2500);
+            if (!platillos.length) alert("Order is empty");
+            else {
+                await axios.request({
+                    method: "DELETE",
+                    url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}`,
+                });
+                setTimeout(() => {
+                    orden_hecha.style.display = "none";
+                    fondo.style.display = "none";
+                    window.location.href = "/";
+                }, 2500);
+            }
         });
 
         btn_ordenar.addEventListener("click", async () => {
-            await axios.request({
-                method: "PATCH",
-                url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}`,
-                headers: { "Content-Type": "application/json" },
-                data: { state: "entregado" },
-            });
-            setTimeout(() => {
-                orden_hecha.style.display = "none";
-                fondo.style.display = "none";
-                window.location.href = "/";
-            }, 2500);
+            if (!platillos.length) alert("Order is empty");
+            else if (!inp_direccion.value) alert("Complete fields!");
+            else {
+                orden_hecha.style.display = "flex";
+                fondo.style.display = "flex";
+                await axios.request({
+                    method: "PATCH",
+                    url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}`,
+                    headers: { "Content-Type": "application/json" },
+                    data: { state: "entregado" },
+                });
+                setTimeout(() => {
+                    orden_hecha.style.display = "none";
+                    fondo.style.display = "none";
+                    window.location.href = "/";
+                }, 2500);
+            }
         });
 
-        const platillos = pedidoData.data.body.platillos;
         platillos.forEach((platillo) => {
             // Crear los elementos del item de la mesa
             const nuevoItem = document.createElement("div");
@@ -154,12 +164,18 @@ const username = getCookie("username");
 
             btnMenos.addEventListener("click", async () => {
                 console.log("Botón Menos presionado");
-                await axios.request({
-                    method: "PATCH",
-                    url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}/platillos/${platillo.id}`,
-                    headers: { "Content-Type": "application/json" },
-                    data: { amount: platillo.amount - 1 },
-                });
+                if (platillo.amount > 1)
+                    await axios.request({
+                        method: "PATCH",
+                        url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}/platillos/${platillo.id}`,
+                        headers: { "Content-Type": "application/json" },
+                        data: { amount: platillo.amount - 1 },
+                    });
+                else
+                    await axios.request({
+                        method: "DELETE",
+                        url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}/platillos/${platillo.id}`,
+                    });
                 await displayPlatillos();
             });
 
