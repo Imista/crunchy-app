@@ -36,6 +36,7 @@ console.log(username);
     display_new_platillo(platillo);
 
     btn_like.addEventListener("click", async () => {
+        btn_like.disabled = true;
         await axios.request({
             method: "POST",
             url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/platillos/vistos`,
@@ -50,9 +51,11 @@ console.log(username);
         });
         platillo = platillos.shift();
         display_new_platillo(platillo);
+        btn_like.disabled = false;
     });
 
     btn_dislike.addEventListener("click", async () => {
+        btn_dislike.disabled = true;
         await axios.request({
             method: "POST",
             url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/platillos/vistos`,
@@ -61,6 +64,7 @@ console.log(username);
         });
         platillo = platillos.shift();
         display_new_platillo(platillo);
+        btn_dislike.disabled = false;
     });
 })();
 

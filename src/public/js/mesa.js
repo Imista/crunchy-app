@@ -1,7 +1,9 @@
 const contenedorMesa = document.querySelector("#mesa");
 const btn_cancelar = document.getElementById("btn_si");
+const btn_o = document.getElementById("btn_cancelar");
 const btn_ordenar = document.getElementById("btn_ordenar");
 const inp_direccion = document.querySelector("#inp_direccion");
+const no = document.getElementById("btn_no");
 
 function getCookie(name) {
     const cookies = document.cookie.split(";");
@@ -24,49 +26,76 @@ const username = getCookie("username");
 
     const userId = userData.data.body.id;
 
+    let pedidoData = await axios.request({
+        method: "GET",
+        url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/last`,
+    });
+
+    const pedidoId = pedidoData.data.body.id;
+
+    let platillos = [];
+
+    btn_o.addEventListener("click", () => {
+        if (!platillos.length) alert("Order is empty");
+        else {
+            cancelar_pedido.style.display = "flex";
+            fondo.style.display = "flex";
+        }
+    });
+
+    no.addEventListener("click", (event) => {
+        cancelar_pedido.style.display = "none";
+        fondo.style.display = "none";
+    });
+
+    btn_cancelar.addEventListener("click", async () => {
+        btn_cancelar.disable = true;
+        if (!platillos.length) alert("Order is empty");
+        else {
+            exito.style.display = "flex";
+            fondo.style.display = "flex";
+            await axios.request({
+                method: "DELETE",
+                url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}`,
+            });
+            setTimeout(() => {
+                orden_hecha.style.display = "none";
+                fondo.style.display = "none";
+                window.location.href = "/";
+            }, 2500);
+        }
+        btn_cancelar.disable = false;
+    });
+
+    btn_ordenar.addEventListener("click", async () => {
+        btn_ordenar.disable = true;
+        if (!platillos.length) alert("Order is empty");
+        else if (!inp_direccion.value) alert("Complete fields!");
+        else {
+            orden_hecha.style.display = "flex";
+            fondo.style.display = "flex";
+            await axios.request({
+                method: "PATCH",
+                url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}`,
+                headers: { "Content-Type": "application/json" },
+                data: { state: "entregado" },
+            });
+            setTimeout(() => {
+                orden_hecha.style.display = "none";
+                fondo.style.display = "none";
+                window.location.href = "/";
+            }, 2500);
+        }
+        btn_ordenar.disable = false;
+    });
+
     const displayPlatillos = async () => {
         contenedorMesa.innerHTML = "";
-        const pedidoData = await axios.request({
+        pedidoData = await axios.request({
             method: "GET",
             url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/last`,
         });
-        const pedidoId = pedidoData.data.body.id;
-        const platillos = pedidoData.data.body.platillos;
-
-        btn_cancelar.addEventListener("click", async () => {
-            if (!platillos.length) alert("Order is empty");
-            else {
-                await axios.request({
-                    method: "DELETE",
-                    url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}`,
-                });
-                setTimeout(() => {
-                    orden_hecha.style.display = "none";
-                    fondo.style.display = "none";
-                    window.location.href = "/";
-                }, 2500);
-            }
-        });
-
-        btn_ordenar.addEventListener("click", async () => {
-            if (!platillos.length) alert("Order is empty");
-            else if (!inp_direccion.value) alert("Complete fields!");
-            else {
-                orden_hecha.style.display = "flex";
-                fondo.style.display = "flex";
-                await axios.request({
-                    method: "PATCH",
-                    url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}`,
-                    headers: { "Content-Type": "application/json" },
-                    data: { state: "entregado" },
-                });
-                setTimeout(() => {
-                    orden_hecha.style.display = "none";
-                    fondo.style.display = "none";
-                    window.location.href = "/";
-                }, 2500);
-            }
-        });
+        platillos = pedidoData.data.body.platillos;
 
         platillos.forEach((platillo) => {
             // Crear los elementos del item de la mesa
@@ -154,15 +183,18 @@ const username = getCookie("username");
 
             // Agregar logs a los botones cuando son presionados
             btnCerrar.addEventListener("click", async () => {
+                btnCerrar.disabled = true;
                 console.log("Botón Cerrar presionado");
                 await axios.request({
                     method: "DELETE",
                     url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}/platillos/${platillo.id}`,
                 });
                 await displayPlatillos();
+                btnCerrar.disabled = false;
             });
 
             btnMenos.addEventListener("click", async () => {
+                btnMenos.disabled = true;
                 console.log("Botón Menos presionado");
                 if (platillo.amount > 1)
                     await axios.request({
@@ -177,9 +209,11 @@ const username = getCookie("username");
                         url: `https://crunchy-service.onrender.com/api/v1/usuarios/${userId}/pedidos/${pedidoId}/platillos/${platillo.id}`,
                     });
                 await displayPlatillos();
+                btnMenos.disabled = false;
             });
 
             btnMas.addEventListener("click", async () => {
+                btnMas.disabled = true;
                 console.log("Botón Más presionado");
                 await axios.request({
                     method: "PATCH",
@@ -188,6 +222,7 @@ const username = getCookie("username");
                     data: { amount: platillo.amount + 1 },
                 });
                 await displayPlatillos();
+                btnMas.disabled = false;
             });
         });
     };

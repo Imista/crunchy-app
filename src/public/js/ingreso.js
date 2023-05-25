@@ -1,6 +1,7 @@
 const btn_iniciar = document.querySelector("#btn_iniciar");
 
 btn_iniciar.addEventListener("click", () => {
+    console.log("CLICK");
     btn_iniciar.disabled = true;
     const user = document.querySelector("#inp_usuario");
     const pass = document.querySelector("#inp_password");
