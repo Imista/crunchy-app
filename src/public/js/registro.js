@@ -27,12 +27,12 @@ btn_iniciar.addEventListener("click", () => {
             url: "https://crunchy-service.onrender.com/api/v1/usuarios",
             headers: { "Content-Type": "application/json" },
             data: {
-                name: inp_nombre.value,
-                lastName: inp_apellido.value,
-                email: inp_correo.value,
+                name: inp_nombre.value.trim(),
+                lastName: inp_apellido.value.trim(),
+                email: inp_correo.value.trim(),
                 phone: "0000000000",
-                username: inp_usuario.value,
-                password: inp_password.value,
+                username: inp_usuario.value.trim(),
+                password: inp_password.value.trim(),
                 photoUrl:
                     "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
             },
